@@ -9,9 +9,7 @@ static const int I2C_SDA = 23;
 static const int I2C_SCL = 19;
 
 // ===== OLED дисплей =====
-U8G2_SSD1306_128X64_NONAME_F_HW_I2C disp(
-  U8G2_R0, U8X8_PIN_NONE, I2C_SCL, I2C_SDA
-);
+U8G2_SH1106_128X64_NONAME_F_HW_I2C disp(U8G2_R0, U8X8_PIN_NONE, I2C_SCL, I2C_SDA);
 
 // ===== Пины энкодера и кнопок =====
 #define PIN_ENC_A    35
@@ -338,7 +336,7 @@ void showMenu() {
   int fw = tw + 22;                      // ширина рамки: текст + 8px полей
   int fx = (128 - fw) / 2;              // центрируем рамку
   disp.drawFrame(fx, 0, fw, 16);        // высота рамки 16px
-  drawCentered(12, title, FONT_CYR);    // текст на y=12 (центриров.)
+  drawCentered(13, title, FONT_CYR);    // текст на y=12 (центриров.)
 
   const char* items[2] = { "Реакция", "Задержка" };
   for (int i = 0; i < 2; i++) {
